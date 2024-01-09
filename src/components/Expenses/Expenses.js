@@ -1,14 +1,23 @@
+import React from 'react'
+import ExpenseItem from './ExpenseItem.js'
+import ExpenseFilter from './ExpensesFilter.js'
 import "./Expenses.css"
-import ExpenseItem from './ExpenseItem'
-import Card from "../UI/Card";
+import Card from '../UI/Card'
 
-function Expenses(props){
-	return(
+const Expenses = (props) => {
+	const addExpenseFilterHandler = (expenseFilter) => {
+		console.log('Year data in Expenses.js')
+		console.log(expenseFilter)
+	}
+
+	return (
 		<Card className="expenses">
+			<ExpenseFilter onAddExpenseFilter={addExpenseFilterHandler} />
 			<ExpenseItem expenseData={props.expensesData[0]}></ExpenseItem>
-        	<ExpenseItem expenseData={props.expensesData[1]}></ExpenseItem>
+			<ExpenseItem expenseData={props.expensesData[1]}></ExpenseItem>
 		</Card>
-		)
+	)
+
 }
 
 export default Expenses
